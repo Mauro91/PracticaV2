@@ -1,0 +1,11 @@
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="page.main.title">
+            <block class="Practica\ProductSpecialPrice\Block\ProductSpecialPrice"
+                   name="product.special.price"
+                   template="Practica_ProductSpecialPrice::special_prices.phtml"
+                   after="-"
+                   cacheable="false"/>
+        </referenceBlock>
+    </body>
+</page>

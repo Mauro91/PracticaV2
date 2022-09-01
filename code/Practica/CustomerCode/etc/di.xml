@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Practica\CustomerCode\Logger\Handler">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Practica\CustomerCode\Logger\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">myLoggerName</argument>
+            <argument name="handlers"  xsi:type="array">
+                <item name="system" xsi:type="object">Practica\CustomerCode\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--type name="Magento\Customer\Controller\Account\EditPost">
+        <plugin name="populate_new_customer_data_object_after" type="Practica\CustomerCode\Plugin\Adminhtml\EditPost"></plugin>
+    </type-->
+    <type name="Magento\Customer\Model\ResourceModel\CustomerRepository">
+        <plugin name="populate_new_customer_data_object_after" type="Practica\CustomerCode\Plugin\frontend\EditPost"></plugin>
+    </type>
+    <!--Grid en el panel admin-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="practica_customercode_grid_customercode_listing_data_source" xsi:type="string">PracticaCustomerCodeCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="PracticaCustomerCodeCollection" type="Practica\CustomerCode\Ui\DataProvider\CustomerCode\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_code</argument>
+            <argument name="resourceModel" xsi:type="string">Practica\CustomerCode\Model\ResourceModel\CustomerCode</argument>
+        </arguments>
+    </virtualType>
+</config>

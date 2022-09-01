@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_register_success">
+        <observer name="insert_custormer_data" instance="Practica\CustomerCode\Observer\AfterCustomerRegistration"/>
+    </event>
+    <event name="customer_account_edited">
+        <observer name="edit_custormer_code" instance="Practica\CustomerCode\Observer\AfterCustomerEdit" disabled="true" />
+    </event>
+    <event name="customer_save_after_data_object">
+        <observer name="edit_custormer_code" instance="Practica\CustomerCode\Observer\AfterCustomerEdit" disabled="true" />
+    </event>
+</config>

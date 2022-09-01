@@ -1,0 +1,14 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Practica\ProductSpecialPrice\Block\ProductSpecialPrice $block */
+/** @var //\Magento\Customer\Model\Context $block */
+?>
+<?php if ($block->showSpecialPrice()) : ?>
+    <?= __('hello %1',$block->getCustomerName()) ?>
+    <p> <?=$block->getCustomerName()?>! esta oferta es especial para vos! disfruta de un <?=$block->getDiscount()?>% de descuento</p>
+
+<?php endif; ?>

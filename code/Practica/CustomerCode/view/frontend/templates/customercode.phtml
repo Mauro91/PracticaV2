@@ -1,0 +1,24 @@
+<div class="content">
+    <div class="conteText">
+        <strong><i>Customer Code</i></strong>
+        <p>Tabla</p>
+    </div>
+</div>
+<?php
+$bytes = random_bytes(20);
+//echo $bytes;
+var_dump(bin2hex($bytes));
+//var_dump(uniqid($bytes));
+$code = random_strings(40, 5);
+echo time();
+var_dump("<p>Hora: ".time()."</p>");
+var_dump("<br>".$code);
+$Object = new DateTime();
+$DateAndTime = $Object->format("dmY h:i:s");
+echo "<br>The current date and time are $DateAndTime.";
+
+function random_strings($length_of_string, $id) {
+
+    return substr(md5(time()).md5($id), 0, $length_of_string);
+}
+?>
